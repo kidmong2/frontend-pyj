@@ -1,0 +1,131 @@
+/* 스타일 변수 */
+:root {
+  --orange: #e67e22;
+  --green: #2ecc71;
+  --blue: #3498db;
+  --grey: #bdc3c7;
+  --white: #ecf0f1;
+  --base-color: var(--blue);
+}
+
+body {
+  background-color: var(--base-color);
+  color: var(--white);
+  height: 100%;
+  text-align: center;
+  font-size: 18px;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+}
+
+canvas {
+  color: var(--white);
+  border: var(--white) dashed 2px;
+  padding: 15px;
+}
+
+h1,h2,h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+  margin: 5px 0;
+}
+
+h1 {
+  font-size: 2.6em;
+}
+h2 {
+  font-size: 1.6em;
+}
+p {
+  font-size: 1.6em;
+}
+
+/* 동적으로 생성될 버튼에 대한 스타일링 */
+
+#alphabet {
+  margin: 15px auto;
+  padding: 0;
+  max-width: 900px;
+  display: block;
+}
+
+#alphabet li {
+  float: left;
+  margin: 0 10px 10px 0;
+  list-style: none;
+  width: 35px;
+  height: 30px;
+  padding-top: 10px;
+  background-color: var(--white);
+  color: var(--base-color);
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid var(--white);
+  transition: all 0.3s ease-in-out;
+}
+
+#alphabet li:hover {
+  background-color: var(--base-color);
+  color: var(--white);
+}
+
+#my-word li {
+  list-style: none;
+  margin: 0;
+  display: inline-block;
+  padding: 0 10px;
+  font-size: 1.6em;
+}
+
+.active {
+  opacity: 0.4;
+  cursor: default;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.active:hover {
+  opacity: 0.4;
+  transition: opacity 0.3s ease-in-out;
+}
+
+mylives {
+  font-size: 1.6em;
+  text-align: center;
+  display: block;
+}
+
+button {
+  border-radius: 5px;
+  background-color: var(--base-color);
+  color: var(--white);
+  border: 1px solid var(--white);
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 18px 10px;
+  width: 180px;
+  margin: 10px;
+  outline: none;
+  transition: all 0.5s ease-in-out;
+}
+
+button:hover {
+  background-color: var(--white);
+  color: var(--base-color);
+}
+
+@media (max-width: 767px) {
+  #alphabet {
+    padding: 0 0 0 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  #alphabet {
+    padding: 0 0 0 25px;
+  }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+  <div class="wrapper">
+    <h1>HANGMAN</h1>
+    <h2>VANILLA JAVASCRIPT HANGMAN GAME</h2>
+    <p>Use the alphabet below to guess the word, or click hint to get a clue</p>
+  </div>
+
+  <div class="wrapper">
+    <!-- 알파벳 공간 -->
+    <div id="buttons"></div>
+
+    <!-- 카테고리 종류 -->
+    <p id="categoryName"></p>
+
+    <!-- 정답 단어가 표시될 영역 -->
+    <div id="hold"></div>
+
+    <!-- 남은 목숨 -->
+    <div id="mylives"></div>
+
+    <!-- 문제 단서 -->
+    <p id="clue"></p>
+
+    <!-- 행맨이 그려질 캔버스 -->
+    <canvas id="stickman">Not support HTML5</canvas>
+    
+    <div class="container">
+      <button id="hint">Hint</button>
+      <button id="reset">Play again</button>
+    </div>
+  </div>
+
+
+
+
+
+
+<body>
+
+  <script src="./main.js"></script>
+</body>
+
+</html>

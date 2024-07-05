@@ -1,0 +1,36 @@
+.sq1 {
+  height: 400px;
+  width: 400px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.a {
+  display: flex;
+  justify-content: space-between;
+  height: 25%;
+  width: 100%;
+}
+
+
+.sq2, .sq3 {
+  border: 1px solid black;
+  height: 100%;
+  width: 25%;
+}
+
+
+.b {
+  display: flex;
+  justify-content: space-between;
+  height: 25%;
+  width: 100%;
+}
+
+.sq4, .sq5 {
+  border: 1px solid black;
+  height: 100%;
+  width: 25%;
+}

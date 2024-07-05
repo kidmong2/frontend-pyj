@@ -1,0 +1,17 @@
+
+
+.sq1 {
+  width: 500px;
+  height: 300px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sq2, .sq3, .sq4 {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+}
+

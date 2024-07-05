@@ -1,0 +1,49 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.sq1 {
+  width: 400px;
+  height: 400px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  padding: 10px;
+}
+
+.first {
+  height: 25%;
+  width: 100%;
+  display: flex;
+
+}
+
+
+.a,
+.c,
+.d,
+.e {
+  border: 1px solid black;
+  height: 100%;
+  width: 25%;
+
+}
+
+.b, .f {
+  height: 100%;
+  flex: 1;
+  border: 1px solid black;
+  
+}
+
+.second {
+  display: flex;
+  height: 25%;
+  width: 100%;
+
+}
+
+
+
