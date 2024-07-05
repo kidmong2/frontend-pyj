@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>객체 지향 프로그래밍</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+  <div id="userForm">
+    <input type="text" id="name" placeholder="Name" required>
+    <input type="text" id="email" placeholder="Email" required>
+    <button onclick="createUser()">Add user</button>
+    <button onclick="updateUser()">Update user</button>
+    <button onclick="deleteUser()">Remove user</button>
+    <p id="message" class="error"></p>
+  </div>
+
+  <table id="userTable">
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>email</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <!-- 사용자 정보가 보여지는 공간 -->
+    </tbody>
+  </table>
+
+
+
+  <script src="./app.js"></script>
+</body>
+
+</html>
