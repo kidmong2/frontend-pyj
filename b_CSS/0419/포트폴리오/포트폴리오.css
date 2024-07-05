@@ -1,0 +1,84 @@
+:root {
+  --main-color: #3498db;
+  --acent-color: #f39c12;
+  --light-bg: #ecf0f1;
+  --dark-text: #2c3e50;
+  --light-text: #bdc3c7;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--light-bg);
+  color: var(--dark-text);
+  /* 프로젝트 내의 요소들은 box 모델 사이즈에 내부 여백과 테두리를 포함해서 설정 */
+  box-sizing: border-box;
+}
+
+header, nav, section, footer {
+  padding: 20px;
+  margin: 10px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+header {
+  background: linear-gradient(to right, var(--main-color), var(--acent-color));
+  color: white;
+  text-shadow: 1px 1px 2px black ;
+}
+
+header h1, p {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+  background-color: white;
+  padding: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin: 0px 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: var(--dark-text);
+  font-weight: bold;
+  margin: 10px;
+  padding: 5px 10px;
+  border: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+  background-color: var(--main-color);
+  color: white;
+  border-color: var(--acent-color);
+  border-radius: 5px;
+}
+
+/* nav ul li a:focus {
+  background-color: var(--main-color);
+  color: white;
+  border-color: var(--acent-color);
+  border-radius: 5px;
+} */
+
+section h2 {
+  border-bottom: 30px var(--acent-color);
+  padding-bottom: 10px;
+}

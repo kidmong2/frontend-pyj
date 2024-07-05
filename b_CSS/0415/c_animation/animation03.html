@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Animation</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      margin: 60px auto;
+      animation: rotate 3s, background 3s infinite alternate;
+      /* animation-direction: alternate;
+      animation-iteration-count: infinite; */
+    }
+
+    @keyframes rotate {
+      from {
+        transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+      }
+      50% {
+        transform: perspective(120px) rotateX(-180deg) rotateY(0deg);
+      }
+      to {
+        transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+      }
+    }
+
+    @keyframes background {
+      from { background-color: lightcoral;}
+      50% { background-color: lightblue;}
+      to { background-color: lightgreen;}
+      
+    }
+
+
+    
+
+
+
+
+
+  </style>
+</head>
+
+<body>
+  <!--  
+    ! animation-timing-function 속성
+    : 애니메이션 속도 곡선을 지정
+    - 퍼센트 % 값으로 설정
+      0% from ~ 100% to
+      : 중간의 %값 설정으로 시작과 끝 사이의 중간 지점에 대한 스타일 변화 설정 가능
+
+    ! animation 속성
+      : 여러개의 애니메이션 속성을 한 줄로 줄여서 사용 가능
+      : 지정하지 않는 속성들은 모두 기본값
+      - animation-duration 속성값은 반드시 지정
+
+
+  -->
+	<div class="box">	</div>
+</body>
+</html>

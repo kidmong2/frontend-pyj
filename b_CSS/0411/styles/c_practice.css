@@ -1,0 +1,40 @@
+body {
+  margin: 0;
+}
+
+header {
+  background-color: brown;
+  height: 100px;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  line-height: 100px;
+  margin: 0;
+}
+
+article {
+  padding: 10px;
+  margin: 10px;
+  background-color: aliceblue;
+  width: 200px;
+}
+
+section {
+  display: flex;
+  /* flex-direction: row;
+  /* 블록레벨요소의 경우 전체 너비를 100% 차지하기 때문에 크기를 지정하지 않으면 모든 아이템들이
+    wrapping 되어 아래로 흐르게 된다
+   */
+  flex-wrap: wrap-reverse;
+  
+  /* flex-flow 속성 (약칭 속성)
+      : direction + wrap 
+   */ 
+  flex-flow: row wrap;
+
+
+
+
+}

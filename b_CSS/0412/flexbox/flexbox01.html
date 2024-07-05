@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flexbox Layout</title>
+  <style>
+    .flexbox {
+      display: flex;
+      background-color: lightblue;
+      padding: 30px;
+      font-size: 20px;
+
+      flex-direction: row;
+      flex-wrap: wrap-reverse;
+
+    }
+
+    .box {
+      background-color: steelblue;
+      margin: 10px;
+      padding: 20px;
+      font-size: 30px;
+    }
+
+
+
+
+
+  </style>
+</head>
+<body>
+  <!-- 
+    flex container : flexbox layout을 적용할 틀
+    - display: felx;
+    - 위의 속성 지정 시 해당 컨테이너 내의 자식 요소들이 수직(y축) 배치
+
+
+    flex item : flex container로 지정된 요소의 직접적인 자식 요소
+
+    ! flex-direction 속성
+      : flex 컨테이너 내의 아이템들이 어떻게 배치될지 결정
+      ? row(가로,행), column(세로,열), reverse
+
+    ! flex-wrap 속성
+      : flex 컨테이너 내의 아이템들이 한 줄에 모두 배치될 수 없을 때 동작을 결정
+      - 줄 바꿈 여부와 방향을 설정
+      ? nowrap(기본값), wrap(줄바꿈실행), wrap-reverse
+
+
+
+  -->
+
+<div class="flexbox">
+  <div class="box">Box 1</div>
+  <div class="box">Box 2</div>
+  <div class="box">Box 3</div>
+  <div class="box">Box 4</div>
+  <div class="box">Box 5</div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

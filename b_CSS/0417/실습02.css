@@ -1,0 +1,292 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 
+  ! 스크롤바의 기능은 사용하되 보이지 않도록 설정하는 방법
+  >> 스크롤바의 경우 브라우저에서 제공
+    (크롬, 사파리, 엣지, 파이어폭스 등)
+
+    1) 크롬, 사파리 지정 방식
+      - '::-webkit-scrollbar' CSS 의사요소를 사용하여 스크롤바를 숨김 처리
+      - 해당 선택자에 display: none; 설정
+
+
+
+
+
+
+
+*/
+
+
+/* ! 크롬과 사파리에서 지정방식 */
+
+/* 프로젝트의 모든 요소에 대해 스크롤바를 숨김 처리 */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* 특정 요소에만 스크롤바를 숨김 처리 */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+/* ! 엣지와 파이어폭스에서 지정방식 */
+
+body {
+  /* 스크롤 기능이 동작되도록 반드시 설정 */
+  overflow: auto;
+  /* !엣지 */
+  -ms-overflow-style: none;
+  /* !파이어폭스 */
+  scrollbar-width: none;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  /* overflow-x: 화면 너비를 초과하는 부분에 대한 가로 스크롤바를 숨김 */
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #333;
+  color: white;
+  padding: 1rem 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+}
+
+.nav-links li {
+  display: inline;
+  margin-left: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.menu-toggle {
+  /* 기본적으로 화면에서 숨김 처리*/
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  
+}
+
+
+
+
+@media (max-width:768px) {
+  .nav-links {
+    position: fixed;
+    left: 0;
+    right: 0;
+    /* 헤더 아래에서 시작 */
+    top: 60px;
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    /* 초기에는 보이지 않도록 설정 */
+    max-height: 0;
+  }
+
+
+  .nav-links li {
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .nav-links a {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+}
+
+
+.section {
+  padding: 50px 20px;
+  padding-top: 50px;
+  transition: padding-top 0.3s ease, background-color 0.3s ease;
+
+}
+
+/* 링크의 수신처로 id 속성을 사용하여 파일의 부분 이동을 하는 경우
+  : 해당 부분이 자동으로 target 설정이 됨
+*/
+
+section:target {
+  /* 
+    타겟팅이 되었을 때 패딩의 상단을 늘리는 이유
+    : 고정된 header 아래에 요소를 배치하기 위함
+  */
+  padding-top: 70px;
+  background-color: #f0f0f0;
+
+}
+
+
+.banner {
+  /* 
+    no-repeat : 반복 없이 이미지 지정
+    center center: 수평 수직 방향으로의 가운데 정렬
+    /cover: 배경 이미지의 크기 조정 방식 
+      - 요소의 전체 영역을 완전히 커버하도록 확장 표시
+  
+  */
+  background: url(../../images/cat01.jpg) no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  position: relative;
+} 
+
+.banner h1, .banner p {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+  animation: fadeinup 1.5s ease-out forwards;
+
+}
+/* 애니메이션 키프레임 정의 */
+
+@keyframes fadeinup {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+#about img {
+  width: 90%;
+  max-width: 600px;
+  height: auto;
+  transition: transform 0.3s ease-in-out opacity 0.3s ease-in-out;
+}
+
+#about img:hover {
+  transform: scale(1.1);
+  opacity: 0.7;
+  z-index: 0;
+}
+
+.portfolio-container, .service-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+
+}
+
+.portfolio-item, .service {
+  margin: 10px;
+  flex-basis: 30%;
+  text-align: center;
+
+}
+
+
+.portfolio-item img {
+  width: 100%;
+}
+
+.service {
+  width: 200px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#contact {
+  background-color: #f8f9fa;
+  padding: 50px 20px;
+  text-align: center;
+  color: #333;
+}
+
+#contact h2 {
+  color: #0056b3;
+  margin-bottom: 20px;
+}
+
+#contact p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+}
+
+#contact form {
+  max-width: 500px;
+  margin: auto;
+}
+
+#contact input, #contact textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#contact button {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #007eff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact button:hover {
+  background-color: #0056b3;
+}
+
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}

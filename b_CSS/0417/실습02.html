@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>미디어 쿼리 실습02</title>
+  <link rel="stylesheet" href="실습02.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <div class="logo">모던웹</div>
+      <ul class="nav-links">
+        <!-- (li>a)*5 -->
+        <li><a href="#home">홈</a></li>
+        <li><a href="#about">소개</a></li>
+        <li><a href="#portfolio">포트폴리오</a></li>
+        <li><a href="#service">서비스</a></li>
+        <li><a href="#contact">연락처</a></li>
+      </ul>
+      <div class="menu-toggle">☰</div>
+    </nav>
+  </header>
+
+  <section id="home" class="banner">
+    <h1>모든 웹에 오신 것을 환영합니다.</h1>
+    <p>당신의 비즈니스를 다음 단계로 끌어올릴 준비가 되었나요?</p>
+  </section>
+
+  <section id="about">
+    <h2>회사 소개</h2>
+    <p>모던웹은 최신 웹 기술을 사용하여 맞춤형 웹 솔루션을 제공하는 선도기업 입니다.</p>
+    <img src="../../images/cat01.jpg" alt="회사 이미지">
+  </section>
+
+  <section id="portfolio">
+    <h2>포트폴리오</h2>
+    <div class="portfolio-container">
+      <div class="portfolio-item">
+        <img src="../../images/dog01.jpg" alt="프로젝트 1">
+        <p>프로젝트 1 설명</p>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="../../images/dog02.jpg" alt="프로젝트 2">
+        <p>프로젝트 2 설명</p>
+      </div>
+
+      <div class="portfolio-item">
+        <img src="../../images/dog03.jpg" alt="프로젝트 3">
+        <p>프로젝트 3 설명</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="service">
+    <h2>서비스</h2>
+    <div class="service-container">
+      <div class="service">디자인</div>
+      <div class="service">개발</div>
+      <div class="service">마켓팅</div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>연락처</h2>
+    <p>우리는 여러분의 의견을 소중하게 생각합니다. 언제든지 연락주세요!!!</p>
+
+    <form>
+      <input type="text" placeholder="이름">
+      <input type="email" placeholder="이메일">
+      <textarea placeholder="메시지"></textarea>
+      <button type="submit">보내기</button>
+    </form>
+  </section>
+
+
+
+
+  <footer>
+    <p>&copy; 2024 모던웹. 모든 권리 보유.</p>
+  </footer>
+
+  <script>
+		document.querySelector('.menu-toggle').addEventListener('click', () => {
+			const navLinks = document.querySelector('.nav-links');
+			if (navLinks.style.maxHeight) {
+				navLinks.style.maxHeight = null;
+			} else {
+				navLinks.style.maxHeight = navLinks.scrollHeight + "px";
+			}
+		});
+	</script>
+
+
+
+
+  
+</body>
+</html>
