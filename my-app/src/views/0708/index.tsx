@@ -26,6 +26,7 @@ export default function Index() {
       <Reducer04 />
       
 
+      <hr />
       <h2>2. practice</h2>
       
       <h2>3. example</h2>

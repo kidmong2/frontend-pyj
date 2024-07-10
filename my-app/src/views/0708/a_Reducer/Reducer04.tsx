@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useReducer, useRef, useState } from "react";
+import './Reducer04.css'
 
 interface Product {
   id: number;
@@ -30,7 +31,7 @@ const initialState: State = {
 
 const reducer = (state: State, action: Action): State => {
   switch (action.type) {
-    case "add":
+    case "add": {
       const exisitingItem = state.cart.find(
         (item) => item.id === action.product.id
       );
@@ -51,8 +52,9 @@ const reducer = (state: State, action: Action): State => {
           total: state.total + action.product.price,
         };
       }
+    }
 
-    case "remove":
+    case "remove": {
       const itemToRemove = state.cart.find(
         (item) => item.id === action.productId
       );
@@ -64,8 +66,9 @@ const reducer = (state: State, action: Action): State => {
         };
       }
       return state;
+    }
 
-    case "increment":
+    case "increment": {
       const item = state.cart.find((item) => item.id === action.productId)!;
       return {
         ...state,
@@ -76,8 +79,9 @@ const reducer = (state: State, action: Action): State => {
         ),
         total: state.total + item.price,
       };
+    }
 
-    case "decrement":
+    case "decrement": {
       const itemToDecrement = state.cart.find(
         (item) => item.id === action.productId
       )!;
@@ -86,7 +90,7 @@ const reducer = (state: State, action: Action): State => {
           ...state,
           cart: state.cart.map((item) =>
             item.id === action.productId
-              ? { ...item, quantity: item.quantity + 1 }
+              ? { ...item, quantity: item.quantity - 1 }
               : item
           ),
           total: state.total - itemToDecrement.price,
@@ -97,8 +101,8 @@ const reducer = (state: State, action: Action): State => {
           cart: state.cart.filter((item) => item.id !== action.productId),
           total: state.total - itemToDecrement.price,
         };
-
       }
+    }
 
     case "clear":
       return initialState;
@@ -109,5 +113,81 @@ const reducer = (state: State, action: Action): State => {
 };
 
 export default function Reducer04() {
-  return <div></div>;
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  const [products, setProducts] = useState<Product[]>([
+    { id: 1, name: "Laptop", price: 1000 },
+    { id: 1, name: "Phone", price: 800 },
+    { id: 1, name: "monitor", price: 500 },
+  ]);
+
+  // input 창에 대한 상태관리
+  const [newProduct, setNewProduct] = useState({ name: "", price: 0 });
+
+  const productIdRef = useRef(4);
+
+  const handleAddProduct = () => {
+    const product = {
+      id: productIdRef.current++,
+      ...newProduct,
+    };
+
+    setProducts([...products, product]);
+    setNewProduct({
+      name: "",
+      price: 0,
+    });
+  };
+
+  return (
+    <div className="shopping-cart">
+      <h2>Products</h2>
+      <ul className="product-list">
+        {products.map((product) => (
+          <li key={product.id} className="product-item">
+            {product.name} - ${product.price}
+            <button onClick={() => dispatch({ type: "add", product })}>
+              Add To Cart
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      <h2>Add New Product</h2>
+      <div className="add-product">
+        <input
+          type="text"
+          placeholder="Product Name"
+          value={newProduct.name}
+          onChange={(e) =>
+            setNewProduct({ ...newProduct, name: e.target.value })
+          }
+        />
+
+        <input
+          type="text"
+          placeholder="Product Price"
+          value={newProduct.price}
+          onChange={(e) =>
+            setNewProduct({ ...newProduct, price: Number(e.target.value) })
+          }
+        />
+        <button onClick={handleAddProduct}>Add Product</button>
+      </div>
+
+      <h2>Cart</h2>
+      <ul className="cart-list">
+        {state.cart.map((item) => (
+          <li key={item.id} className="cart-item">
+            {item.name} - ${item.price} X {item.quantity}
+            <button onClick={() => dispatch({type: 'increment', productId: item.id})}>+</button>
+            <button onClick={() => dispatch({type: 'decrement', productId: item.id})}>-</button>
+            <button onClick={() => dispatch({type: 'remove', productId: item.id})}>Remove</button>
+          </li>
+        ))}
+      </ul>
+      <p>Toal: ${state.total}</p>
+      <button onClick={() => dispatch({type: 'clear'})}>Clear Cart</button>
+    </div>
+  );
 }
