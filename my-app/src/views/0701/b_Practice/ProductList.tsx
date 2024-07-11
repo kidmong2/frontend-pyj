@@ -21,9 +21,6 @@ function ProductList({
 }: ProductListProps) {
 
 
-
-
-
   return <div className={styles.productList}>
     {products.map(product => (
       <ProductItem 

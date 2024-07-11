@@ -25,11 +25,12 @@ export function useInput2(initialValue: string): UseInputReturn {
 
   return {
     value,
-    reset,
     bind: {
       value,
       onChange: handleChange
-    }
+    },
+    reset
   }
+
 
 }

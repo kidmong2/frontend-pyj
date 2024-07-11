@@ -18,6 +18,7 @@ import Index0704 from "./views/0704";
 import Index0705 from "./views/0705";
 import Index0708 from "./views/0708";
 import Index0709 from "./views/0709";
+import Index0710 from "./views/0710";
 import Components from "./components/Components";
 
 import NavigationBar from "./components/NavigationBar";
@@ -47,6 +48,7 @@ function App() {
         <Route path="/0705" element={<Index0705 />} />
         <Route path="/0708" element={<Index0708 />} />
         <Route path="/0709" element={<Index0709 />} />
+        <Route path="/0710" element={<Index0710 />} />
       </Routes>
 
       <Footer />
