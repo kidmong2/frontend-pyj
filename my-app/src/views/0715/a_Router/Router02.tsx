@@ -18,6 +18,7 @@ export default function Router02() {
     <div>
       <h2>Link 컴포넌트 사용법</h2>
       <Link to="/">Home</Link>
+      <hr />
       <Link to="/0715/router02">현재 컴포넌트로 이동</Link>
 
       <hr />
