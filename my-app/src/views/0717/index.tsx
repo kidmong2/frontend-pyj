@@ -1,6 +1,6 @@
 import React from "react";
-import { ThemeConsumer } from "./a_ContextApi/ThemeProvider";
-import ThemeProvider from "./a_ContextApi/ThemeProvider";
+// import { ThemeConsumer } from "./a_ContextApi/ThemeProvider";
+import ThemeProvider, { ThemeConsumer } from "./a_ContextApi/ThemeProvider";
 import ContextApi01 from "./a_ContextApi/ContextApi";
 import Zustand01 from "./b_Zustand/Zustand01";
 import Zustand02 from "./b_Zustand/Zustand02";
@@ -11,7 +11,7 @@ import Zustand02 from "./b_Zustand/Zustand02";
 
 사용 시기: 사용자 로그인 상태, 프로필 정보, 설정 등 앱 전반에서 공유되어야 하는 데이터를 관리할 때 사용
 
->> 이 데이터는 클라이언트 사이드에서만 유지되며 페이지를 새로고침하면 초기화
+>> 이 데이터는 "클라이언트 사이드" 에서만 유지되며 페이지를 새로고침하면 초기화
 
 장점: 여러 컴포넌트 간 데이터 공유와 상태 업데이트가 용이
 단점: 페이지 리로드 시 상태 정보가 사라짐
@@ -41,15 +41,18 @@ export default function Index() {
       </h1>
 
       <h2>1. Context Api</h2>
-      <ThemeProvider>
-        <ThemeConsumer />
-        <ContextApi01 />
-      </ThemeProvider>
+        <ThemeProvider>
+          <ThemeConsumer />
+          <ContextApi01 />
+        </ThemeProvider>
 
       <hr />
       <h2>2. Zustand</h2>
-      <Zustand01 />
-      <Zustand02 />
+          <Zustand01 />
+          <hr />
+          <Zustand02 />
+          <hr />
+
 
     </div>
   );

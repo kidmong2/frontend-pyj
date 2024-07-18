@@ -1,4 +1,5 @@
 import React from 'react'
+import { create } from 'zustand';
 
 //! Zustand 상태관리 프로그램
 // : React Hooks을 기반
@@ -26,7 +27,11 @@ import React from 'react'
 
 //* State의 타입 선언
 // : 카운트 상태 저장
-
+interface CountState {
+  count: number;
+  increment: () => void;
+  decrement: () => void;
+}
 
 //* create 함수의 파라미터에 함수 형태로 state의 초기값과 state를 변경하는 함수를 선언
 
@@ -48,11 +53,45 @@ import React from 'react'
 // 제품 데이터 전역 상태 관리: product.store.ts
 
 
+export const useCountStore = create<CountState>(set => ({
+  count: 0,
+  increment: () => set(state => ({count: state.count + 1})),
+  decrement: () => set(state => ({count: state.count - 1})),
+}));
+
+// 외부 컴포넌트를 대체
+function Componenet () {
+  const {count, decrement} = useCountStore();
+
+  return (
+    <>
+    <p>Count: {count}</p>
+    <button onClick={decrement}>감소</button>
+    </>
+  )
+}
+
+//! 메인 컴포넌트
 export default function Zustand01() {
+
+  const {count, increment} = useCountStore();
+
+
+  
+  // 스토어의 원하는 특정 부분만 선택하여 사용
+  const otherCount = useCountStore(state => state.count);
+
+  const otherDecrement = useCountStore(state => state.decrement);
 
   return (
     <div>
-      
+      <Componenet />
+      <hr />
+
+      <p>{count}</p>
+      <p>{otherCount}</p>
+      <button onClick={increment}>증가</button>
+      <button onClick={otherDecrement}>감소</button>
     </div>
   )
 }
