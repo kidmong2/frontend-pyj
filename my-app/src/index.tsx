@@ -4,12 +4,16 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { ThemeProvider } from '@mui/material';
+import { theme } from './views/0718/a_Styles/css/theme';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
+    <ThemeProvider theme={theme}>
+
     {/* 
     react-rounter-dom에서 제공하는 기능
     : 라우팅 적용을 위한 컴포넌트 작성 
@@ -18,6 +22,7 @@ root.render(
     <BrowserRouter>
       <App />
     </BrowserRouter>
+    </ThemeProvider>
   </React.StrictMode>
 );
 

@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import GlobalStyles from "./views/0718/a_Styles/css/GlobalStyles";
+
 
 import { Route, Routes } from "react-router-dom";
 
@@ -22,6 +24,7 @@ import Index0710 from "./views/0710";
 import Index0715 from "./views/0715";
 import Index0716 from "./views/0716";
 import Index0717 from "./views/0717";
+import Index0718 from "./views/0718";
 import Components from "./components/Components";
 import Indexprojects from "./views/projects"
 
@@ -32,6 +35,10 @@ import Footer from "./components/Footer";
 function App() {
   return (
     <>
+      <GlobalStyles />
+      {/* <h1>Global Styles 적용</h1>
+      <div className="globalbox">글로벌 스타일 박스</div> */}
+
       <Headers />
       <NavigationBar />
 
@@ -56,6 +63,7 @@ function App() {
         <Route path="/0715/*" element={<Index0715 />} />
         <Route path="/0716/*" element={<Index0716 />} />
         <Route path="/0717" element={<Index0717 />} />
+        <Route path="/0718" element={<Index0718 />} />
         
         <Route path="/projects" element={<Indexprojects />} />
 
